@@ -1,0 +1,25 @@
+[{
+    "id": "1",
+    "title": "Board A",
+    "description": "About board a",
+    "active": true,
+    "lists": [{
+        "id": "1",
+        "title": "Todo",
+        "tasks": [{
+            "id": "1",
+            "title": "Complete Kanban Board"
+        }, {
+            "id": "2",
+            "title": "Complete Kanban Board"
+        }]
+    }, {
+        "id": "2",
+        "title": "Doing",
+        "tasks": []
+    }, {
+        "id": "3",
+        "title": "Done",
+        "tasks": []
+    }]
+}]
