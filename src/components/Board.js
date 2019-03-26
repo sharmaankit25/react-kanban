@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import List from "./List";
 import Layout from "./layouts/Layout";
 import { connect } from "react-redux";
-import { addList, fetchBoard } from "./actions/index";
+import { addList } from "./actions/index";
 
 class Board extends Component {
   state = {
     list: ""
   };
-
-  componentDidMount() {
-    const board_details = this.props.fetchBoard(this.props.match.params.id);
-  }
 
   addList = e => {
     e.preventDefault();
@@ -64,5 +60,5 @@ const mapStateToProps = ({ lists }) => {
 
 export default connect(
   mapStateToProps,
-  { addList, fetchBoard }
+  { addList }
 )(Board);

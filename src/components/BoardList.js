@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addBoard } from "./actions/index";
+import { addBoard, fetchBoards } from "./actions/index";
 import { Link } from "react-router-dom";
 
 export class BoardList extends Component {
   state = {
     title: ""
   };
+
+  componentDidMount() {
+    console.log(this.props.fetchBoards());
+  }
 
   addBoard = e => {
     e.preventDefault();
@@ -57,5 +61,5 @@ const mapStateToProps = ({ boards }) => {
 
 export default connect(
   mapStateToProps,
-  { addBoard }
+  { addBoard, fetchBoards }
 )(BoardList);

@@ -1,8 +1,9 @@
+import axios from "axios";
 import {
   ADD_BOARD,
   FETCH_LISTS,
   ADD_LIST,
-  FETCH_BOARD,
+  FETCH_BOARDS,
   ADD_CARD
 } from "./types";
 
@@ -15,11 +16,20 @@ export const addBoard = board => {
 };
 
 // Fetch Board
-export const fetchBoard = board => {
-  return {
-    type: FETCH_BOARD,
-    payload: board
-  };
+export const fetchBoards = board => async dispatch => {
+  dispatch({
+    type: FETCH_BOARDS,
+    payload: []
+  });
+  try {
+    const boards = await axios.get("/api/boards");
+    dispatch({
+      type: FETCH_BOARDS,
+      payload: boards.data
+    });
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 // Fetch board Lists
